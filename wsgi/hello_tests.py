@@ -22,10 +22,5 @@ class FlaskTestCase(unittest.TestCase):
         rv = self.app.post('/',data=dict(aptoide_search=page_test))
         assert rv.status_code == 200
 
-    def test_api(self):
-        rv = self.app.get('/api/' + page_test)
-        assert rv.status_code == 200
-
-
 if __name__ == '__main__':
     unittest.main()

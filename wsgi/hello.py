@@ -26,22 +26,3 @@ def data():
     else:
         return "Error : not a valid aptoide (english) url"
 
-@app.route('/api/<path:link>', methods=['GET'])
-def api(link):
-    request.user_agent.string = "Mohamed LEGHERABA bot, only scrapping app data"
-    if regex_aptoide_url.match(link):
-        page_response = requests.get(link, timeout=5)
-        if page_response.status_code == 200:
-
-          n,v,nb,r,d = scrap_app(page_response)
-          return jsonify(name=n,
-              version=v,
-              nbdownloads=nb,
-              date=r,
-              description=d
-          )
-        else:
-            return "Error " + safestr(page_response.status_code)
-    else:
-        return "Error : not a valid aptoide url, url is " + link
-
