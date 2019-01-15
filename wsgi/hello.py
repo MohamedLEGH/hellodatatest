@@ -43,5 +43,5 @@ def api(link):
         else:
             return "Error " + safestr(page_response.status_code)
     else:
-        return "Error : not a valid aptoide url"
+        return "Error : not a valid aptoide url, url is " + link
 
