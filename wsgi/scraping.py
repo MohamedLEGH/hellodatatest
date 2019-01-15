@@ -13,7 +13,6 @@ def scrap_description(page_data):
     data_p = datadiv.p
     datastring = ""
     for child in data_p.children:
-                    if sys.version_info.major == 3:
         if safestr(child) == "<br/>":
             datastring += '\n'
         else:
