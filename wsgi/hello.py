@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, jsonify
-from scraping import scrap_app
+from scraping import scrap_app, safestr
 import re
 import requests
 app = Flask(__name__)
@@ -22,7 +22,7 @@ def data():
             n,v,nb,r,d = scrap_app(page_response)
             return render_template('results.html',name=n,version=v,nbdownloads=nb,date=r,description=d)
         else:
-            return "Error " + str(page_response.status_code)
+            return "Error " + safestr(page_response.status_code)
     else:
         return "Error : not a valid aptoide (english) url"
 
@@ -41,7 +41,7 @@ def api(link):
               description=d
           )
         else:
-            return "Error " + str(page_response.status_code)
+            return "Error " + safestr(page_response.status_code)
     else:
         return "Error : not a valid aptoide url"
 

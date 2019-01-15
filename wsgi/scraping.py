@@ -1,15 +1,23 @@
 from bs4 import BeautifulSoup
 import requests
+import sys
+
+def safestr(data):
+    if sys.version_info.major == 3:
+        return str(data)
+    if sys.version_info.major == 2:
+        return unicode(data)
 
 def scrap_description(page_data):
     datadiv = page_data.find('div',attrs={"class":"view-app__description"})
     data_p = datadiv.p
     datastring = ""
     for child in data_p.children:
-        if str(child) == "<br/>":
+                    if sys.version_info.major == 3:
+        if safestr(child) == "<br/>":
             datastring += '\n'
         else:
-            datastring += str(child)
+            datastring += safestr(child)
     return datastring
 
 def scrap_data(page_data,search_string):
@@ -20,7 +28,7 @@ def scrap_data(page_data,search_string):
     for row in datatable.findAll("tr"):
         cells = row.findAll("td")
         if cells[0].string == search_string:
-            v = str(cells[1].string)
+            v = safestr(cells[1].string)
             break
     return v
 
