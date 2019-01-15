@@ -1,0 +1,24 @@
+h1{
+  position: absolute;
+  top: 20%;
+  right: 40%;
+
+}
+
+form {
+  position: absolute;
+  top: 80%;
+  right: 30%;
+
+}
+
+#aptoide_search {
+  height: auto;
+  width : 300px;
+}
+
+#submitbutton{
+  height: 100px;
+  width : 100px;
+
+}

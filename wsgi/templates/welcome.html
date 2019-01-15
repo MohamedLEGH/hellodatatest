@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/welcome.css') }}" />
+        <title>Aptoide Data Engine</title>
+    </head>
+
+    <body>
+      <h1>Aptoide Search</h1>
+      <form action="/" method="post">
+        <input type="url" id="aptoide_search" name="aptoide_search" placeholder="http://example.com/" required/>
+        <input type="submit" id="submitbutton" value="Search" />
+      </form>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}" />
+        <title>Aptoide Data Results</title>
+    </head>
+
+    <body>
+      <ul>
+        <li> <b>App's name </b>: {{ name }}</li>
+        <li> <b>App's version </b>: {{ version }}</li>
+        <li> <b>Number of downloads </b>: {{ nbdownloads }}</li>
+        <li> <b>Release date </b>: {{ date }}</li>
+        <li> <b>App's description </b>:<br><br>{{ description }}</li>
+      </ul>
+    </body>
+</html>
