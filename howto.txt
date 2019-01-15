@@ -4,10 +4,11 @@ cd wsgi
 pip install -r requirements.txt
 
 start:
+cd wsgi
 gunicorn --bind 0.0.0.0:8000 wsgi
 
 go to http://localhost:8000/
 
 test:
-
+cd wsgi
 python hello_tests.py
